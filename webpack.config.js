@@ -15,9 +15,46 @@ module.exports = (env) => {
             filename: '[name].js',
             publicPath: 'dist/'
         },
+        watchOptions: {
+            aggreagateTimeout: 300
+        },
         module: {
             rules: [
-                { test: /\.tsx?$/, include: /ClientApp/, use: 'awesome-typescript-loader?silent=true' },
+                { 
+                    test: /\.tsx?$/, include: /ClientApp/, 
+                    use: [
+                        { loader: 'babel-loader' },
+                        {
+                            loader: 'awesome-typescript-loader',
+                            options: {
+                                silent: true
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: [
+                        { loader: 'babel-loader' }
+                    ]
+                },
+                {
+                    test: /\.less$/,
+                    use: [{
+                        loader: "style-loader" // creates style nodes from JS strings 
+                    }, {
+                        loader: "css-loader",
+                        options: {
+                            sourceMap: true
+                        } // translates CSS into CommonJS 
+                    }, {
+                        loader: "less-loader", 
+                        options: {
+                            sourceMap: true
+                        } // compiles Less to CSS 
+                    }]
+                },
                 { test: /\.css$/, use: isDevBuild ? ['style-loader', 'css-loader'] : ExtractTextPlugin.extract({ use: 'css-loader?minimize' }) },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
             ]
