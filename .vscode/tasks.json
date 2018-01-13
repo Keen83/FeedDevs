@@ -10,15 +10,22 @@
             "group": "build",
             "presentation": {
                 "reveal": "silent"
-            },
+            },            
             "problemMatcher": "$msCompile"
+           
+        },
+        {
+            "label": "runit",
+            "command": "dotnet run",
+            "type": "shell",
+            "group":"build",
+            
         },
         {
             "label": "watch",
             "command": "dotnet watch run",
             "type": "shell",
-            "group":"build",
-            
+            "group":"build"
         }
     ]
 }

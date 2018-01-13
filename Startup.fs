@@ -1,9 +1,5 @@
 namespace FeedDevs
 
-open System
-open System.Collections.Generic
-open System.Linq
-open System.Threading.Tasks
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Hosting
 open Microsoft.AspNetCore.SpaServices.Webpack
@@ -30,7 +26,7 @@ type Startup private () =
         if (env.IsDevelopment()) then
             
             app.UseDeveloperExceptionPage() |> ignore
-            app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions(HotModuleReplacement = true, ReactHotModuleReplacement = true))
+            app.UseWebpackDevMiddleware(WebpackDevMiddlewareOptions(HotModuleReplacement = true, ReactHotModuleReplacement = true)) |> ignore
         else
             app.UseExceptionHandler("/Home/Error") |> ignore
 
