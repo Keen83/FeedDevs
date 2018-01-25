@@ -1,16 +1,23 @@
 import * as React from 'react'
 
 export interface MenuItemModel {
-    data: {num: number, name: string}
+    id: number,
+    num: number, 
+    name: string
 }
 
 export class MenuItem extends React.Component<MenuItemModel, {}> {
+    
+    toggleCheckboxChange = () => {
+        //const { handleCheckboxChange, label } = this.props;
+    }
+
     public render() {
         return (
-            <div>
-                {this.props.data.num}. {this.props.data.name}
-                <input type="checkbox" />
-            </div>
+            <li>
+                {this.props.num}. {this.props.name}
+                <input type="checkbox" onChange={this.toggleCheckboxChange} />
+            </li>
         );
     }
 }
