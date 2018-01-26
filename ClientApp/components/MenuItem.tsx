@@ -1,3 +1,4 @@
+import './../css/test.less';
 import * as React from 'react'
 
 export interface MenuItemModel {
@@ -14,7 +15,7 @@ export class MenuItem extends React.Component<MenuItemModel, {}> {
 
     public render() {
         return (
-            <li>
+            <li className='test'>
                 {this.props.num}. {this.props.name}
                 <input type="checkbox" onChange={this.toggleCheckboxChange} />
             </li>
