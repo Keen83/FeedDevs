@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "devDependencies": {
-    "@types/history": "4.6.0",
+    "@types/history": "^4.6.0",
     "@types/react": "15.0.35",
     "@types/react-dom": "15.5.1",
     "@types/react-hot-loader": "3.0.3",
@@ -39,5 +39,15 @@
     "url-loader": "0.5.9",
     "webpack": "2.5.1",
     "webpack-hot-middleware": "2.18.2"
+  },
+  "dependencies": {
+    "@types/react-redux": "^5.0.14",
+    "@types/react-router-redux": "^5.0.11",
+    "domain-task": "^3.0.3",
+    "history": "^4.7.2",
+    "react-redux": "^5.0.6",
+    "react-router-redux": "5.0.0-alpha.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   }
 }
